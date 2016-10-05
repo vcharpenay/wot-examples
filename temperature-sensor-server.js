@@ -3,6 +3,8 @@
 const context = require('./context')
 const server = require('./server')
 const url = require('url')
+const Property = require('./property').Property
+const WritableProperty = require('./property').WritableProperty
 const Events = require('./events').Events
 const SimpleRDF = require('simplerdf/lite').SimpleRDF
 
@@ -11,9 +13,9 @@ class TemperatureSensor extends SimpleRDF {
     super(context, iri)
 
     this.type = context.TemperatureSensor
-    this.temperature = 20
-    this.threshold = 25
-    this.temperatureChange = new Events(url.resolve(iri, 'temperatureChange/'), {
+    this.temperature = new Property(url.resolve(iri, 'temperature/'), 20)
+    this.threshold = new WritableProperty(url.resolve(iri, 'threshold/'), 25)
+    this.temperatureChange = new Events(url.resolve(iri, 'temperatureChange'), {
       onCreate: (event) => {
         hydraObjects[event.iri()] = event
       },
@@ -23,7 +25,7 @@ class TemperatureSensor extends SimpleRDF {
         }
       }
     })
-    this.thresholdWarning = new Events(url.resolve(iri, 'thresholdWarning/'), {
+    this.thresholdWarning = new Events(url.resolve(iri, 'thresholdWarning'), {
       onCreate: (event) => {
         hydraObjects[event.iri()] = event
       },
@@ -39,11 +41,6 @@ class TemperatureSensor extends SimpleRDF {
     return this
   }
 
-  put (input) {
-    this.threshold = input.threshold
-
-    return this
-  }
 }
 
 let temperatureSensor = new TemperatureSensor('http://localhost:8080/')

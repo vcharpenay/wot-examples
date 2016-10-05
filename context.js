@@ -19,11 +19,15 @@ const context = {
   method: 'http://www.w3.org/ns/hydra/core#method',
 
   // wot
+  Property: 'http://example.org/wot#Property',
+  WritableProperty: 'http://example.org/wot#WritableProperty',
   Event: 'http://example.org/wot#Event',
+  OccurredEvent: 'http://example.org/wot#OccurredEvent',
   target: {
     '@id': 'http://example.org/wot#target',
     '@type': '@id'
   },
+  val: 'http://example.org/wot#hasValue',
 
   // examples
   TemperatureSensor: 'http://example.org/example#TemperatureSensor',

@@ -8,7 +8,7 @@ class Event extends SimpleRDF {
   constructor (events, input) {
     super(context, input.iri())
 
-    this.type = context.Event
+    this.type = context.OccurredEvent
     this.method = input.method
     this.target = input.target
 
