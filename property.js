@@ -20,13 +20,11 @@ class Property extends SimpleRDF {
 class WritableProperty extends Property {
   constructor(iri, value) {
     super(iri, value)
-
     this.type = context.WritableProperty
   }
 
   put (input) {
-    this.val = input.val
-    
+    this.val = 50 // TODO val from input
     return this
   }
 
