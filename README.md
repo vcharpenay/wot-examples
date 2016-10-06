@@ -14,7 +14,9 @@ The [hydra-middleware](https://github.com/bergos/hydra-middleware) module is use
 
 ### Property
 
-Properties are mapped to [hydra:supportedProperty](https://www.hydra-cg.com/spec/latest/core/#hydra:supportedProperty).
+One [hydra:operation](https://www.hydra-cg.com/spec/latest/core/#hydra:Operation) IRI is defined to retrieve the property value.
+Only properties with simple value types are supported (string, integer, float...). The value is defined as a
+[hydra:supportedProperty](https://www.hydra-cg.com/spec/latest/core/#hydra:supportedProperty).
 
 ### Action
 
