@@ -24,7 +24,8 @@ class WritableProperty extends Property {
   }
 
   put (input) {
-    this.val = 50 // TODO val from input
+    // this.val = input.val (FIXME why input.val is undefined?)
+    this.val = 50
     return this
   }
 

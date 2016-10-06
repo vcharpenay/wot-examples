@@ -15,7 +15,7 @@ class TemperatureSensor extends SimpleRDF {
     this.type = context.TemperatureSensor
     this.temperature = new Property(url.resolve(iri, 'temperature/'), 20)
     this.threshold = new WritableProperty(url.resolve(iri, 'threshold/'), 25)
-    this.temperatureChange = new Events(url.resolve(iri, 'temperatureChange'), {
+    this.temperatureChange = new Events(url.resolve(iri, 'temperatureChange/'), {
       onCreate: (event) => {
         hydraObjects[event.iri()] = event
       },
@@ -25,7 +25,7 @@ class TemperatureSensor extends SimpleRDF {
         }
       }
     })
-    this.thresholdWarning = new Events(url.resolve(iri, 'thresholdWarning'), {
+    this.thresholdWarning = new Events(url.resolve(iri, 'thresholdWarning/'), {
       onCreate: (event) => {
         hydraObjects[event.iri()] = event
       },

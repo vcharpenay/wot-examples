@@ -17,6 +17,34 @@ hydra:Collection a hydra:Class ;
 
 # wot
 
+wot:Property a hydra:Class ;
+  hydra:supportedOperation [
+    a hydra:Operation ;
+    hydra:method "GET" ;
+    hydra:returns wot:Property
+  ] ;
+  hydra:supportedProperty [
+    hydra:property wot:hasValue ;
+    hydra:readable true
+  ] .
+
+wot:WritableProperty a hydra:Class ;
+  hydra:supportedOperation [
+    a hydra:Operation ;
+    hydra:method "GET" ;
+    hydra:returns wot:Property
+  ], [
+    a hydra:Operation ;
+    hydra:expects wot:Property ;
+    hydra:method "PUT" ;
+    hydra:returns wot:Property
+  ]
+  hydra:supportedProperty [
+    hydra:property wot:hasValue ;
+    hydra:readable true ;
+    hydra:writable true
+  ] .
+
 wot:Event a hydra:Class ;
   hydra:supportedOperation [ a hydra:Operation ;
     hydra:method "GET" ;
