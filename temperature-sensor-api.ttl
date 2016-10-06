@@ -38,7 +38,7 @@ wot:WritableProperty a hydra:Class ;
     hydra:expects wot:Property ;
     hydra:method "PUT" ;
     hydra:returns wot:Property
-  ]
+  ] ;
   hydra:supportedProperty [
     hydra:property wot:hasValue ;
     hydra:readable true ;

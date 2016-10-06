@@ -6,14 +6,14 @@ const SimpleRDF = require('simplerdf/lite').SimpleRDF
 
 const iri = 'http://localhost:8080/'
 
-// fetch the temperature sensor
-hydraFetch(iri, {context: context}).then((temperatureSensor) => {
+// fetch temperature sensor's threshold
+hydraFetch(iri + 'threshold/', {context: context}).then((threshold) => {
 
   // change the threshold
-  temperatureSensor.threshold = 30
+  threshold.val = 30
 
-  return temperatureSensor.put(temperatureSensor).then((temperatureSensor) => {
-    console.log('new threshold: ' + temperatureSensor.threshold)
+  return threshold.put(threshold).then((threshold) => {
+    console.log('new threshold: ' + threshold.val)
   })
 
 /*
